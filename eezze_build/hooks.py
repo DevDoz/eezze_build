@@ -33,5 +33,11 @@ fixtures = [
         "filters": [
             ["dt", "in", ["Purchase Invoice", "Purchase Receipt"]]
         ]
+    },
+    {
+        "dt": "Workspace",
+        "filters": [
+            ["name", "=", "Eezze Build AP"]
+        ]
     }
 ]

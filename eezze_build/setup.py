@@ -286,6 +286,14 @@ def setup_custom_fields():
                 "fieldtype": "Datetime",
                 "read_only": 1,
                 "insert_after": "custom_pop_sent"
+            },
+            {
+                "fieldname": "custom_customer_refund_ref",
+                "label": "Customer Refund Request (P-FIN-14)",
+                "fieldtype": "Link",
+                "options": "Customer Refund Request",
+                "read_only": 1,
+                "insert_after": "custom_pop_sent_on"
             }
         ]
     }

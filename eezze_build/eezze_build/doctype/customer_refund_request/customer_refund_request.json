@@ -1,0 +1,441 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-11-27 13:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "company",
+  "branch",
+  "posting_date",
+  "column_break_top",
+  "status",
+  "refund_amount",
+  "currency",
+  "customer_section",
+  "customer",
+  "customer_name",
+  "customer_email",
+  "customer_phone",
+  "column_break_cust",
+  "original_sales_invoice",
+  "credit_note",
+  "proof_of_original_payment",
+  "bank_section",
+  "bank_name",
+  "bank_account_no",
+  "column_break_bank",
+  "bank_branch_code",
+  "bank_account_holder",
+  "bank_confirmation_letter",
+  "dmn_section",
+  "credit_note_approved",
+  "original_payment_received",
+  "bank_details_confirmed",
+  "column_break_dmn",
+  "dmn_decision",
+  "return_reason",
+  "return_notified",
+  "return_notified_at",
+  "dual_control_section",
+  "fm_authorized",
+  "fm_authorized_by",
+  "fm_authorized_at",
+  "column_break_dual",
+  "loaded_on_banking",
+  "loaded_by",
+  "loaded_at",
+  "bank_transfer_ref",
+  "ceo_released",
+  "ceo_released_by",
+  "ceo_released_at",
+  "payment_entry",
+  "pop_section",
+  "pop_file",
+  "pop_sent",
+  "column_break_pop",
+  "pop_sent_at",
+  "filing_notes"
+ ],
+ "fields": [
+  {
+   "default": "REF-REQ-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "REF-REQ-.YYYY.-.#####",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "EEZZE Build",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Branch (Store)",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Request Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_top",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Pending Verification",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nPending Verification\nReturned to Branch\nPending FM Authorization\nPending Online Banking Load\nPending CEO Release\nRefund Paid & Filed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "refund_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Refund Amount",
+   "options": "currency",
+   "reqd": 1
+  },
+  {
+   "default": "BWP",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_section",
+   "fieldtype": "Section Break",
+   "label": "Customer & Originating Documents"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer.email_id",
+   "fieldname": "customer_email",
+   "fieldtype": "Data",
+   "label": "Customer Email"
+  },
+  {
+   "fetch_from": "customer.mobile_no",
+   "fieldname": "customer_phone",
+   "fieldtype": "Data",
+   "label": "Customer Phone"
+  },
+  {
+   "fieldname": "column_break_cust",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "original_sales_invoice",
+   "fieldtype": "Link",
+   "label": "Original Sales Invoice",
+   "options": "Sales Invoice",
+   "reqd": 1
+  },
+  {
+   "fieldname": "credit_note",
+   "fieldtype": "Link",
+   "label": "Credit Note (Return Sales Invoice)",
+   "options": "Sales Invoice",
+   "reqd": 1
+  },
+  {
+   "fieldname": "proof_of_original_payment",
+   "fieldtype": "Attach",
+   "label": "Proof of Original Payment Received"
+  },
+  {
+   "fieldname": "bank_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Bank Details for EFT"
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "label": "Bank Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bank_account_no",
+   "fieldtype": "Data",
+   "label": "Bank Account Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_bank",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank_branch_code",
+   "fieldtype": "Data",
+   "label": "Bank Branch Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bank_account_holder",
+   "fieldtype": "Data",
+   "label": "Account Holder Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bank_confirmation_letter",
+   "fieldtype": "Attach",
+   "label": "Customer Bank Confirmation Letter / Statement"
+  },
+  {
+   "fieldname": "dmn_section",
+   "fieldtype": "Section Break",
+   "label": "DMN-ACC-09 Decision Engine (Refund can be paid?)"
+  },
+  {
+   "default": "0",
+   "fieldname": "credit_note_approved",
+   "fieldtype": "Check",
+   "label": "1. Credit note approved by Branch Manager?"
+  },
+  {
+   "default": "0",
+   "fieldname": "original_payment_received",
+   "fieldtype": "Check",
+   "label": "2. Original payment received in bank? (Rule: Do not refund money not yet received)"
+  },
+  {
+   "default": "0",
+   "fieldname": "bank_details_confirmed",
+   "fieldtype": "Check",
+   "label": "3. Customer bank details confirmed via bank letter/statement?"
+  },
+  {
+   "fieldname": "column_break_dmn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Pending Verification",
+   "fieldname": "dmn_decision",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "DMN-ACC-09 Decision Result",
+   "options": "Pending Verification\nPay\nReturn to Branch",
+   "read_only": 1
+  },
+  {
+   "fieldname": "return_reason",
+   "fieldtype": "Small Text",
+   "label": "Reason for Returning to Branch (What is missing / uncleared)"
+  },
+  {
+   "default": "0",
+   "fieldname": "return_notified",
+   "fieldtype": "Check",
+   "label": "Branch Notified of Return",
+   "read_only": 1
+  },
+  {
+   "fieldname": "return_notified_at",
+   "fieldtype": "Datetime",
+   "label": "Branch Notified At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dual_control_section",
+   "fieldtype": "Section Break",
+   "label": "Dual Control Authorization & Banking Release (SOP-ACC-07)"
+  },
+  {
+   "default": "0",
+   "fieldname": "fm_authorized",
+   "fieldtype": "Check",
+   "label": "Authorized by Finance Manager (L2)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fm_authorized_by",
+   "fieldtype": "Link",
+   "label": "FM Authorized By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fm_authorized_at",
+   "fieldtype": "Datetime",
+   "label": "FM Authorized At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_dual",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "loaded_on_banking",
+   "fieldtype": "Check",
+   "label": "Loaded on Online Banking (AP&R L3)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "loaded_by",
+   "fieldtype": "Link",
+   "label": "Loaded By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "loaded_at",
+   "fieldtype": "Datetime",
+   "label": "Loaded At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bank_transfer_ref",
+   "fieldtype": "Data",
+   "label": "Bank EFT Transfer Reference"
+  },
+  {
+   "default": "0",
+   "fieldname": "ceo_released",
+   "fieldtype": "Check",
+   "label": "Released by CEO / MD (L1)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ceo_released_by",
+   "fieldtype": "Link",
+   "label": "CEO Released By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ceo_released_at",
+   "fieldtype": "Datetime",
+   "label": "CEO Released At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_entry",
+   "fieldtype": "Link",
+   "label": "Posted Cash Book Payment Entry",
+   "options": "Payment Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pop_section",
+   "fieldtype": "Section Break",
+   "label": "Proof of Payment & Document Filing (SOP-ACC-08)"
+  },
+  {
+   "fieldname": "pop_file",
+   "fieldtype": "Attach",
+   "label": "Bank Proof of Payment (POP)"
+  },
+  {
+   "default": "0",
+   "fieldname": "pop_sent",
+   "fieldtype": "Check",
+   "label": "POP Sent to Branch & Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_pop",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pop_sent_at",
+   "fieldtype": "Datetime",
+   "label": "POP Sent At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "filing_notes",
+   "fieldtype": "Small Text",
+   "label": "Refunds File & Archiving Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-27 13:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Eezze Build",
+ "name": "Customer Refund Request",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "customer_name",
+ "track_changes": 1
+}

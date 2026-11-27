@@ -1,0 +1,365 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-11-27 14:30:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "company",
+  "check_date",
+  "target_date",
+  "column_break_top",
+  "status",
+  "currency",
+  "section_part1",
+  "all_tills_closed",
+  "unclosed_tills_count",
+  "column_break_reg",
+  "registers_summary",
+  "section_table",
+  "till_registers",
+  "section_part2",
+  "manager_contacted",
+  "reason_given_by_manager",
+  "reason_documented",
+  "column_break_dmn",
+  "dmn_action",
+  "manager_reason_notes",
+  "incident_report_required",
+  "incident_report_ref",
+  "incident_report_file",
+  "incident_outcome_followed_up",
+  "incident_outcome_notes",
+  "section_part3_4",
+  "till_suspense_account",
+  "previous_day_suspense_balance",
+  "till_suspense_at_zero",
+  "column_break_sus",
+  "cash_up_comparison_done",
+  "daily_cash_up_file",
+  "discrepancy_amount",
+  "discrepancy_details",
+  "reported_to_fm",
+  "reported_to_fm_at",
+  "section_signoff",
+  "checked_by",
+  "checked_at",
+  "column_break_sign",
+  "overall_notes"
+ ],
+ "fields": [
+  {
+   "default": "TILL-CHK-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "TILL-CHK-.YYYY.-.#####",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "EEZZE Build",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "check_date",
+   "fieldtype": "Date",
+   "label": "Audit Check Date (Morning)",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "target_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Target Business Date (Previous Day)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_top",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nTills Checked - All Closed\nUnclosed Tills Found\nIncident Report Raised\nTill Suspense Discrepancy Found\nClosed & Discrepancy Reported to FM\nVerified & Cleared (Zero Suspense)",
+   "reqd": 1
+  },
+  {
+   "default": "BWP",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_part1",
+   "fieldtype": "Section Break",
+   "label": "Part 1: Daily Branch Registers Status (SOP-ACC-12 Step 1 & 2)"
+  },
+  {
+   "default": "1",
+   "fieldname": "all_tills_closed",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "All Branch Tills Closed & Reconciled?"
+  },
+  {
+   "default": "0",
+   "fieldname": "unclosed_tills_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Unclosed Tills Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_reg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "registers_summary",
+   "fieldtype": "Small Text",
+   "label": "Registers Status Summary",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_table",
+   "fieldtype": "Section Break",
+   "label": "Branch Tills Verification Table (Tills 1, 2, 10, 100)"
+  },
+  {
+   "fieldname": "till_registers",
+   "fieldtype": "Table",
+   "label": "Till Registers",
+   "options": "Daily Till Closing Register Item"
+  },
+  {
+   "fieldname": "section_part2",
+   "fieldtype": "Section Break",
+   "label": "Part 2: Unclosed Till Exception & DMN-ACC-06 Decision (\"Valid Reason Given?\")"
+  },
+  {
+   "default": "0",
+   "fieldname": "manager_contacted",
+   "fieldtype": "Check",
+   "label": "Called Branch Manager for Reason (SOP-ACC-12 Step 3)"
+  },
+  {
+   "default": "0",
+   "fieldname": "reason_given_by_manager",
+   "fieldtype": "Check",
+   "label": "1. Reason given by Branch Manager? (Yes/No)"
+  },
+  {
+   "default": "0",
+   "fieldname": "reason_documented",
+   "fieldtype": "Check",
+   "label": "2. Reason documented in writing/email? (Rule: Reason must be documented)"
+  },
+  {
+   "fieldname": "column_break_dmn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Pending Check",
+   "fieldname": "dmn_action",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "DMN-ACC-06 Decision / Action",
+   "options": "Pending Check\nAccept and recheck next day\nMake incident report",
+   "read_only": 1
+  },
+  {
+   "fieldname": "manager_reason_notes",
+   "fieldtype": "Small Text",
+   "label": "Reason Stated by Branch Manager"
+  },
+  {
+   "default": "0",
+   "fieldname": "incident_report_required",
+   "fieldtype": "Check",
+   "label": "Incident Report Required per DMN-ACC-06",
+   "read_only": 1
+  },
+  {
+   "fieldname": "incident_report_ref",
+   "fieldtype": "Data",
+   "label": "Incident Report Form Reference"
+  },
+  {
+   "fieldname": "incident_report_file",
+   "fieldtype": "Attach",
+   "label": "Attached Incident Report Form"
+  },
+  {
+   "default": "0",
+   "fieldname": "incident_outcome_followed_up",
+   "fieldtype": "Check",
+   "label": "Incident Outcome Followed Up (AP&R L3)"
+  },
+  {
+   "fieldname": "incident_outcome_notes",
+   "fieldtype": "Small Text",
+   "label": "Incident Outcome & Follow-Up Findings"
+  },
+  {
+   "fieldname": "section_part3_4",
+   "fieldtype": "Section Break",
+   "label": "Part 3 & 4: General Ledger Till Suspense & Cash-Up Comparison (SOP-ACC-12 Step 5 & 6)"
+  },
+  {
+   "default": "Till Suspense - EEZZE",
+   "fieldname": "till_suspense_account",
+   "fieldtype": "Link",
+   "label": "Till Suspense Account in General Ledger",
+   "options": "Account"
+  },
+  {
+   "default": "0",
+   "fieldname": "previous_day_suspense_balance",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Previous Day Till Suspense Balance (Key Rule: Must be 0.00)",
+   "options": "currency"
+  },
+  {
+   "default": "1",
+   "fieldname": "till_suspense_at_zero",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Till Suspense at Zero (Key Rule Met)?"
+  },
+  {
+   "fieldname": "column_break_sus",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "cash_up_comparison_done",
+   "fieldtype": "Check",
+   "label": "Compared Branch Cash-Up Reports to Posting Items (Step 6)"
+  },
+  {
+   "fieldname": "daily_cash_up_file",
+   "fieldtype": "Attach",
+   "label": "Branch Daily Cash-Up Report"
+  },
+  {
+   "default": "0",
+   "fieldname": "discrepancy_amount",
+   "fieldtype": "Currency",
+   "label": "Cash-up vs Posting Discrepancy Amount",
+   "options": "currency"
+  },
+  {
+   "fieldname": "discrepancy_details",
+   "fieldtype": "Small Text",
+   "label": "Discrepancy Details & Comparison Findings"
+  },
+  {
+   "default": "0",
+   "fieldname": "reported_to_fm",
+   "fieldtype": "Check",
+   "label": "Reported to Finance Manager (L2)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reported_to_fm_at",
+   "fieldtype": "Datetime",
+   "label": "Reported to FM At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_signoff",
+   "fieldtype": "Section Break",
+   "label": "Audit Sign-Off & Verification"
+  },
+  {
+   "fieldname": "checked_by",
+   "fieldtype": "Link",
+   "label": "Checked By (AP&R L3)",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "checked_at",
+   "fieldtype": "Datetime",
+   "label": "Checked At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sign",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "overall_notes",
+   "fieldtype": "Small Text",
+   "label": "Morning Routine Findings & Sign-Off Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-27 14:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Eezze Build",
+ "name": "Daily Till Closing Check",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "target_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "target_date",
+ "track_changes": 1
+}

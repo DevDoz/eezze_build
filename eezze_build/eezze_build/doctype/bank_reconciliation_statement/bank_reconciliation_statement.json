@@ -1,0 +1,388 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-11-27 14:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "company",
+  "bank_account",
+  "gl_account",
+  "column_break_top",
+  "status",
+  "statement_date",
+  "posting_date",
+  "currency",
+  "section_till",
+  "till_100_reconciled",
+  "till_100_reconciled_by",
+  "till_100_reconciled_at",
+  "column_break_till",
+  "till_100_notes",
+  "section_stmt",
+  "statement_file",
+  "bank_statement_opening_balance",
+  "bank_statement_closing_balance",
+  "column_break_stmt",
+  "bank_statement_date",
+  "bank_statement_ref",
+  "section_gl_recon",
+  "gl_book_balance",
+  "total_unpresented_payments",
+  "total_deposits_in_transit",
+  "column_break_bal",
+  "adjusted_bank_balance",
+  "reconcilable_balance",
+  "variance_status",
+  "section_items",
+  "reconciling_items",
+  "section_suspense",
+  "suspense_items_found",
+  "suspense_account",
+  "suspense_amount",
+  "column_break_sus",
+  "investigation_notes",
+  "investigated_by",
+  "section_filing",
+  "reconciled_by",
+  "reconciled_at",
+  "reconciliation_report_file",
+  "column_break_file",
+  "filing_notes"
+ ],
+ "fields": [
+  {
+   "default": "BANK-REC-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "BANK-REC-.YYYY.-.#####",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "EEZZE Build",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Bank Account",
+   "options": "Bank Account",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "bank_account.account",
+   "fieldname": "gl_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "General Ledger Account",
+   "options": "Account",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_top",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nTill 100 Reconciled\nStatement Imported\nSuspense Under Investigation\nBalanced - Ready to Post\nReconciled & Filed",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "statement_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Statement Date",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Reconciliation Date",
+   "reqd": 1
+  },
+  {
+   "default": "BWP",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_till",
+   "fieldtype": "Section Break",
+   "label": "Step 1: Branch Till 100 Cash Reconciliation (SOP-ACC-10 Step 1)"
+  },
+  {
+   "default": "0",
+   "fieldname": "till_100_reconciled",
+   "fieldtype": "Check",
+   "label": "Till 100 Branch Registers Reconciled & Posted to Cash Book"
+  },
+  {
+   "fieldname": "till_100_reconciled_by",
+   "fieldtype": "Link",
+   "label": "Till 100 Reconciled By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "till_100_reconciled_at",
+   "fieldtype": "Datetime",
+   "label": "Till 100 Reconciled At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_till",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "till_100_notes",
+   "fieldtype": "Small Text",
+   "label": "Branch Till Reconciliation Notes (Kerridge Till 100 equivalent)"
+  },
+  {
+   "fieldname": "section_stmt",
+   "fieldtype": "Section Break",
+   "label": "Step 2 & 4: Bank Statement Balances (SOP-ACC-10 Step 2 & 4)"
+  },
+  {
+   "fieldname": "statement_file",
+   "fieldtype": "Attach",
+   "label": "Bank Statement File (PDF / CSV)"
+  },
+  {
+   "fieldname": "bank_statement_opening_balance",
+   "fieldtype": "Currency",
+   "label": "Bank Statement Opening Balance",
+   "options": "currency"
+  },
+  {
+   "fieldname": "bank_statement_closing_balance",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Bank Statement Closing Balance",
+   "options": "currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_stmt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank_statement_date",
+   "fieldtype": "Date",
+   "label": "Bank Statement Cut-off Date"
+  },
+  {
+   "fieldname": "bank_statement_ref",
+   "fieldtype": "Data",
+   "label": "Bank Statement Number / Reference"
+  },
+  {
+   "fieldname": "section_gl_recon",
+   "fieldtype": "Section Break",
+   "label": "Step 3 & 5: General Ledger & Reconcilable Balance (SOP-ACC-10 Step 5 & 6)"
+  },
+  {
+   "fieldname": "gl_book_balance",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "General Ledger Balance (Books)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_unpresented_payments",
+   "fieldtype": "Currency",
+   "label": "Less: Unpresented Payments (Cheques / EFTs)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_deposits_in_transit",
+   "fieldtype": "Currency",
+   "label": "Add: Deposits in Transit",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_bal",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "adjusted_bank_balance",
+   "fieldtype": "Currency",
+   "label": "Adjusted Bank Balance",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reconcilable_balance",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Reconcilable Variance (Must be 0.00 to post)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "variance_status",
+   "fieldtype": "Data",
+   "label": "Variance Compliance Check",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_items",
+   "fieldtype": "Section Break",
+   "label": "Reconciling Items & Matched Transactions"
+  },
+  {
+   "fieldname": "reconciling_items",
+   "fieldtype": "Table",
+   "label": "Reconciling Items",
+   "options": "Bank Reconciliation Statement Item"
+  },
+  {
+   "fieldname": "section_suspense",
+   "fieldtype": "Section Break",
+   "label": "Step 7: Bank Suspense Investigation (SOP-ACC-10 Step 7)"
+  },
+  {
+   "default": "0",
+   "fieldname": "suspense_items_found",
+   "fieldtype": "Check",
+   "label": "Suspense Items Identified / Non-Zero Variance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "suspense_account",
+   "fieldtype": "Link",
+   "label": "Bank Suspense Account under General Ledger",
+   "options": "Account"
+  },
+  {
+   "fieldname": "suspense_amount",
+   "fieldtype": "Currency",
+   "label": "Suspense Investigation Amount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sus",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "investigation_notes",
+   "fieldtype": "Small Text",
+   "label": "Suspense Investigation Findings & Correcting Entries"
+  },
+  {
+   "fieldname": "investigated_by",
+   "fieldtype": "Link",
+   "label": "Investigated By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_filing",
+   "fieldtype": "Section Break",
+   "label": "Step 6: Reconciliation Report & Document Filing (SOP-ACC-10 Step 6)"
+  },
+  {
+   "fieldname": "reconciled_by",
+   "fieldtype": "Link",
+   "label": "Reconciled By (AP&R L3)",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reconciled_at",
+   "fieldtype": "Datetime",
+   "label": "Reconciled At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reconciliation_report_file",
+   "fieldtype": "Attach",
+   "label": "Generated Bank Reconciliation Report (PDF)"
+  },
+  {
+   "fieldname": "column_break_file",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "filing_notes",
+   "fieldtype": "Small Text",
+   "label": "Filing in Bank Reconciliation File"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-27 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Eezze Build",
+ "name": "Bank Reconciliation Statement",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "bank_account",
+ "track_changes": 1
+}

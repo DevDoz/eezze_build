@@ -1,0 +1,266 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-11-27 11:40:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "company",
+  "cutoff_date",
+  "statement_status",
+  "column_break_top",
+  "currency",
+  "outstanding_balance",
+  "supplier_section",
+  "supplier",
+  "supplier_name",
+  "column_break_supp",
+  "supplier_email",
+  "supplier_phone",
+  "request_activity_section",
+  "request_sent_date",
+  "call_confirmed",
+  "call_confirmed_date",
+  "column_break_act",
+  "call_notes",
+  "follow_up_count",
+  "last_follow_up_date",
+  "filing_section",
+  "statement_file",
+  "statement_received_date",
+  "column_break_file",
+  "statement_closing_balance",
+  "reconciliation_variance",
+  "filing_notes"
+ ],
+ "fields": [
+  {
+   "default": "STMT-REQ-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "STMT-REQ-.YYYY.-.#####",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "EEZZE Build",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "cutoff_date",
+   "fieldtype": "Date",
+   "in_standard_filter": 1,
+   "label": "Month End Cut-off Date",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "statement_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nRequest Sent\nCall Confirmed\nFollow-up Needed\nStatement Received\nFiled for Reconciliation"
+  },
+  {
+   "fieldname": "column_break_top",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "BWP",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "outstanding_balance",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Ledger Balance (Age Analysis)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "supplier_section",
+   "fieldtype": "Section Break",
+   "label": "Supplier Contact Details (SOP-ACC-04)"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Supplier",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "supplier.supplier_name",
+   "fieldname": "supplier_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Supplier Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_supp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "supplier_email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Supplier Contact Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "supplier_phone",
+   "fieldtype": "Data",
+   "label": "Supplier Contact Phone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "request_activity_section",
+   "fieldtype": "Section Break",
+   "label": "Request & Follow-up Workflow (SOP-ACC-04)"
+  },
+  {
+   "fieldname": "request_sent_date",
+   "fieldtype": "Datetime",
+   "label": "Request Sent On",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "call_confirmed",
+   "fieldtype": "Check",
+   "label": "Call Confirmed with Supplier"
+  },
+  {
+   "fieldname": "call_confirmed_date",
+   "fieldtype": "Datetime",
+   "label": "Call Confirmed On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_act",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "call_notes",
+   "fieldtype": "Small Text",
+   "label": "Call Notes / Verbal Confirmation Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "follow_up_count",
+   "fieldtype": "Int",
+   "label": "Follow-up Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_follow_up_date",
+   "fieldtype": "Datetime",
+   "label": "Last Follow-up Sent On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "filing_section",
+   "fieldtype": "Section Break",
+   "label": "Statement Filing & Reconciliation Hand-off"
+  },
+  {
+   "fieldname": "statement_file",
+   "fieldtype": "Attach",
+   "label": "Received Supplier Statement (PDF/Excel)"
+  },
+  {
+   "fieldname": "statement_received_date",
+   "fieldtype": "Date",
+   "label": "Statement Received Date"
+  },
+  {
+   "fieldname": "column_break_file",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "statement_closing_balance",
+   "fieldtype": "Currency",
+   "label": "Supplier Statement Closing Balance",
+   "options": "currency"
+  },
+  {
+   "fieldname": "reconciliation_variance",
+   "fieldtype": "Currency",
+   "label": "Ledger vs Statement Variance",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "filing_notes",
+   "fieldtype": "Small Text",
+   "label": "Filing / Pre-Reconciliation Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-27 11:40:00.000000",
+ "modified_by": "Administrator",
+ "module": "Eezze Build",
+ "name": "Supplier Statement Request",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "supplier_name",
+ "track_changes": 1
+}

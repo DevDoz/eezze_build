@@ -1,7 +1,7 @@
 {
  "charts": [],
- "content": "[{\"id\": \"h_overview\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h3\\\"><b>Eezze Build \\u2014 Accounts Payable & Supplier Invoices</b></span><br><span class=\\\"text-muted small\\\">P-FIN-09: Supplier Invoice Registration, DMN-ACC-01 Decision Rules & GRV Verification</span>\", \"col\": 12}}, {\"id\": \"sp_1\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"h_shortcuts\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Quick Actions & Status Monitoring</b></span>\", \"col\": 12}}, {\"id\": \"sc_1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Supplier Invoices\", \"col\": 3}}, {\"id\": \"sc_2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Verified & Filed Unpaid\", \"col\": 3}}, {\"id\": \"sc_3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Action Needed (Procurement Return)\", \"col\": 3}}, {\"id\": \"sc_4\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Goods Received Vouchers (GRVs)\", \"col\": 3}}, {\"id\": \"sc_5\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Purchase Orders\", \"col\": 3}}, {\"id\": \"sc_6\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Suppliers\", \"col\": 3}}, {\"id\": \"sc_7\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Accounts Payable Summary\", \"col\": 3}}, {\"id\": \"sc_8\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Building Materials & Items\", \"col\": 3}}, {\"id\": \"sp_2\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"h_cards\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Process Stages & Modules</b></span>\", \"col\": 12}}, {\"id\": \"c_1\", \"type\": \"card\", \"data\": {\"card_name\": \"Accounts Payable & Verification (L3)\", \"col\": 4}}, {\"id\": \"c_2\", \"type\": \"card\", \"data\": {\"card_name\": \"Branch Receiving & GRVs\", \"col\": 4}}, {\"id\": \"c_3\", \"type\": \"card\", \"data\": {\"card_name\": \"Procurement & Vendors\", \"col\": 4}}]",
- "creation": "2026-11-27 11:10:01.260722",
+ "content": "[{\"id\": \"h_overview\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h3\\\"><b>Eezze Build \\u2014 Accounts Payable Operations</b></span><br><span class=\\\"text-muted small\\\">P-FIN-09: Supplier Invoices & Verification | P-FIN-10: Statement Requests (SOP-ACC-04)</span>\", \"col\": 12}}, {\"id\": \"sp_1\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"h_shortcuts\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Live Action & Status Monitoring</b></span>\", \"col\": 12}}, {\"id\": \"sc_1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Supplier Invoices\", \"col\": 3}}, {\"id\": \"sc_2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Verified & Filed Unpaid\", \"col\": 3}}, {\"id\": \"sc_3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Incomplete (Return to Procurement)\", \"col\": 3}}, {\"id\": \"sc_4\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Goods Received Vouchers (GRVs)\", \"col\": 3}}, {\"id\": \"sc_stmt_all\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Statement Requests (P-FIN-10)\", \"col\": 3}}, {\"id\": \"sc_stmt_pending\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Statements Pending / Follow-up\", \"col\": 3}}, {\"id\": \"sc_stmt_filed\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Statements Ready for Reconcile\", \"col\": 3}}, {\"id\": \"sc_ap_aging\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Age Analysis (SOP-ACC-04)\", \"col\": 3}}, {\"id\": \"sp_2\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"h_cards\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Accounts Payable & Procurement Modules</b></span>\", \"col\": 12}}, {\"id\": \"c_1\", \"type\": \"card\", \"data\": {\"card_name\": \"Supplier Invoices & Verification (P-FIN-09)\", \"col\": 6}}, {\"id\": \"c_stmt\", \"type\": \"card\", \"data\": {\"card_name\": \"Statement Requests & Age Analysis (P-FIN-10)\", \"col\": 6}}, {\"id\": \"c_2\", \"type\": \"card\", \"data\": {\"card_name\": \"Branch Receiving & GRVs\", \"col\": 6}}, {\"id\": \"c_3\", \"type\": \"card\", \"data\": {\"card_name\": \"Procurement & Suppliers\", \"col\": 6}}]",
+ "creation": "2026-11-27 11:42:44.887596",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -15,7 +15,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Accounts Payable & Verification (L3)",
+   "label": "Supplier Invoices & Verification (P-FIN-09)",
    "link_count": 0,
    "link_type": "DocType",
    "onboard": 0,
@@ -57,6 +57,48 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Statement Requests & Age Analysis (P-FIN-10)",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "description": "Month-end statement requests, phone confirmations, and statement filing (SOP-ACC-04)",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Supplier Statement Requests (All)",
+   "link_count": 0,
+   "link_to": "Supplier Statement Request",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Replaces Excel Supplier Details file with integrated contact directory",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Supplier Contact Directory",
+   "link_count": 0,
+   "link_to": "Contact",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Live supplier age analysis for month-end reconciliation",
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Supplier Age Analysis (Kerridge TC05 equivalent)",
+   "link_count": 0,
+   "link_to": "Accounts Payable Summary",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Branch Receiving & GRVs",
    "link_count": 0,
    "link_type": "DocType",
@@ -75,7 +117,7 @@
    "type": "Link"
   },
   {
-   "description": "Gaborone HO, Francistown, Mogoditshane, Tlokweng",
+   "description": "Gaborone Central Store, Francistown, Mogoditshane, Tlokweng",
    "hidden": 0,
    "is_query_report": 0,
    "label": "Branch Warehouses",
@@ -99,7 +141,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Procurement & Vendors",
+   "label": "Procurement & Suppliers",
    "link_count": 0,
    "link_type": "DocType",
    "onboard": 0,
@@ -139,7 +181,7 @@
    "type": "Link"
   }
  ],
- "modified": "2026-11-27 11:10:01.260722",
+ "modified": "2026-11-27 11:43:24.469565",
  "modified_by": "Administrator",
  "module": "Eezze Build",
  "name": "Eezze Build AP",
@@ -171,7 +213,7 @@
    "color": "Red",
    "doc_view": "",
    "format": "{} Incomplete",
-   "label": "Action Needed (Procurement Return)",
+   "label": "Incomplete (Return to Procurement)",
    "link_to": "Purchase Invoice",
    "stats_filter": "{\"custom_verification_action\": \"Return to Procurement\"}",
    "type": "DocType"
@@ -185,34 +227,38 @@
    "type": "DocType"
   },
   {
-   "color": "Grey",
-   "doc_view": "",
-   "format": "{} Orders",
-   "label": "Purchase Orders",
-   "link_to": "Purchase Order",
-   "type": "DocType"
-  },
-  {
    "color": "Blue",
    "doc_view": "",
-   "label": "Suppliers",
-   "link_to": "Supplier",
+   "format": "{} Total",
+   "label": "Statement Requests (P-FIN-10)",
+   "link_to": "Supplier Statement Request",
+   "type": "DocType"
+  },
+  {
+   "color": "Yellow",
+   "doc_view": "",
+   "format": "{} Pending",
+   "label": "Statements Pending / Follow-up",
+   "link_to": "Supplier Statement Request",
+   "stats_filter": "{\"statement_status\": [\"in\", [\"Request Sent\", \"Call Confirmed\", \"Follow-up Needed\"]]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "",
+   "format": "{} Ready",
+   "label": "Statements Ready for Reconcile",
+   "link_to": "Supplier Statement Request",
+   "stats_filter": "{\"statement_status\": \"Filed for Reconciliation\"}",
    "type": "DocType"
   },
   {
    "color": "Grey",
    "doc_view": "",
-   "label": "Accounts Payable Summary",
+   "label": "Age Analysis (SOP-ACC-04)",
    "link_to": "Accounts Payable Summary",
    "report_ref_doctype": "Purchase Invoice",
    "type": "Report"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "",
-   "label": "Building Materials & Items",
-   "link_to": "Item",
-   "type": "DocType"
   }
  ],
  "title": "Eezze Build AP"

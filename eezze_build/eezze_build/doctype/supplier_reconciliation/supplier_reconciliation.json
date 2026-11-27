@@ -1,0 +1,304 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-11-27 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "company",
+  "reconciliation_date",
+  "cutoff_date",
+  "status",
+  "col_break_top",
+  "supplier",
+  "supplier_name",
+  "statement_request",
+  "currency",
+  "section_balances",
+  "supplier_statement_balance",
+  "erp_ledger_balance",
+  "unreconciled_variance",
+  "col_break_balances",
+  "reconciled_invoices_total",
+  "total_settlement_discount",
+  "net_remittance_amount",
+  "section_items",
+  "items",
+  "section_discrepancy",
+  "has_discrepancies",
+  "discrepancy_details",
+  "discrepancy_communicated_to_supplier",
+  "col_break_disc",
+  "discrepancy_resolution_notes",
+  "section_remittance",
+  "bank_account",
+  "payment_entry",
+  "remittance_date",
+  "col_break_remit",
+  "remittance_pack_file",
+  "remittance_notes"
+ ],
+ "fields": [
+  {
+   "default": "REC-REM-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "REC-REM-.YYYY.-.#####",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "EEZZE Build",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "reconciliation_date",
+   "fieldtype": "Date",
+   "in_standard_filter": 1,
+   "label": "Reconciliation Date",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "cutoff_date",
+   "fieldtype": "Date",
+   "label": "Cut-off Due Date"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nDiscrepancy Found - Sent to Supplier\nReconciled - Remittance Prepared\nApproved & Sent for Payment\nPaid"
+  },
+  {
+   "fieldname": "col_break_top",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Supplier",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "supplier.supplier_name",
+   "fieldname": "supplier_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Supplier Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "statement_request",
+   "fieldtype": "Link",
+   "label": "Linked Statement Request (P-FIN-10)",
+   "options": "Supplier Statement Request"
+  },
+  {
+   "default": "BWP",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "section_balances",
+   "fieldtype": "Section Break",
+   "label": "Reconciliation & Remittance Summary (SOP-ACC-05 & 06)"
+  },
+  {
+   "fieldname": "supplier_statement_balance",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Supplier Statement Balance",
+   "options": "currency"
+  },
+  {
+   "fieldname": "erp_ledger_balance",
+   "fieldtype": "Currency",
+   "label": "ERP Ledger Balance (Age Analysis)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "unreconciled_variance",
+   "fieldtype": "Currency",
+   "label": "Statement vs ERP Variance",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_balances",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reconciled_invoices_total",
+   "fieldtype": "Currency",
+   "label": "Gross Invoices to Pay",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_settlement_discount",
+   "fieldtype": "Currency",
+   "label": "Settlement Discount Taken (SOP-ACC-05)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "net_remittance_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Net Remittance Amount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_items",
+   "fieldtype": "Section Break",
+   "label": "Statement Line Items Matching (SOP-ACC-06)"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Invoices & Statement Line Items",
+   "options": "Supplier Reconciliation Item"
+  },
+  {
+   "fieldname": "section_discrepancy",
+   "fieldtype": "Section Break",
+   "label": "Discrepancies & Supplier Communication"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_discrepancies",
+   "fieldtype": "Check",
+   "label": "Discrepancies Identified"
+  },
+  {
+   "fieldname": "discrepancy_details",
+   "fieldtype": "Small Text",
+   "label": "Discrepancy Description (e.g., invoices missing in ERP, disputed rates)"
+  },
+  {
+   "default": "0",
+   "fieldname": "discrepancy_communicated_to_supplier",
+   "fieldtype": "Check",
+   "label": "Discrepancies Communicated to Supplier"
+  },
+  {
+   "fieldname": "col_break_disc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "discrepancy_resolution_notes",
+   "fieldtype": "Small Text",
+   "label": "Procurement / Supplier Resolution Notes"
+  },
+  {
+   "fieldname": "section_remittance",
+   "fieldtype": "Section Break",
+   "label": "Payment Pack & Remittance Handoff (SOP-ACC-05)"
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Paying Bank Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "payment_entry",
+   "fieldtype": "Link",
+   "label": "Generated Payment Entry",
+   "options": "Payment Entry",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "remittance_date",
+   "fieldtype": "Date",
+   "label": "Remittance Process Date"
+  },
+  {
+   "fieldname": "col_break_remit",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remittance_pack_file",
+   "fieldtype": "Attach",
+   "label": "Remittance Pack (Attached Recon, Statement & Invoices)"
+  },
+  {
+   "fieldname": "remittance_notes",
+   "fieldtype": "Small Text",
+   "label": "Remittance Description"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-27 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Eezze Build",
+ "name": "Supplier Reconciliation",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "supplier_name",
+ "track_changes": 1
+}

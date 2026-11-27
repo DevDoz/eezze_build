@@ -1,7 +1,7 @@
 app_name = "eezze_build"
 app_title = "Eezze Build"
 app_publisher = "Muhammad Ali Husnain"
-app_description = "Custom App for EEZZE Build - Supplier Invoice Registration and Verification (P-FIN-09)"
+app_description = "Custom App for EEZZE Build - Supplier Invoices, Statement Requests & Reconciliation"
 app_email = "alihusnainmughal215@gmail.com"
 app_license = "mit"
 
@@ -37,7 +37,7 @@ fixtures = [
     {
         "dt": "Workspace",
         "filters": [
-            ["name", "=", "Eezze Build AP"]
+            ["name", "=", "Eezze Build"]
         ]
     }
 ]

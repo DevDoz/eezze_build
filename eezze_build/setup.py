@@ -300,4 +300,17 @@ def setup_custom_fields():
 
     create_custom_fields(custom_fields, ignore_validate=True)
     frappe.db.commit()
+
+    # Ensure Cash Advance Control Account exists
+    if not frappe.db.exists("Account", {"account_name": "Cash Advance Control", "company": "EEZZE Build"}):
+        acc = frappe.new_doc("Account")
+        acc.account_name = "Cash Advance Control"
+        acc.company = "EEZZE Build"
+        acc.parent_account = "Current Liabilities - EEZZE"
+        acc.account_type = "Temporary"
+        acc.account_currency = "BWP"
+        acc.insert(ignore_permissions=True)
+        frappe.db.commit()
+        print("Created Cash Advance Control - EEZZE account")
+
     print("Custom fields successfully configured for Eezze Build!")

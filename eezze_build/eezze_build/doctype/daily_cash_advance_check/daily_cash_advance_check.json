@@ -1,0 +1,355 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-11-27 15:10:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "company",
+  "check_date",
+  "branch",
+  "column_break_top",
+  "status",
+  "currency",
+  "section_summary",
+  "all_lines_valid",
+  "total_orders_count",
+  "invalid_lines_count",
+  "column_break_sum",
+  "line_status_summary",
+  "section_table",
+  "order_lines",
+  "section_investigation",
+  "branch_manager_contacted",
+  "branch_manager_contacted_by",
+  "branch_manager_contacted_at",
+  "order_remedy_action",
+  "column_break_inv",
+  "branch_manager_notes",
+  "section_control_recon",
+  "cash_advance_control_account",
+  "report_total_amount",
+  "gl_control_balance",
+  "column_break_ctrl",
+  "balance_difference",
+  "control_agrees",
+  "gl_recon_summary",
+  "section_escalation",
+  "reported_to_fm",
+  "reported_to_fm_at",
+  "fm_decision_notes",
+  "column_break_sign",
+  "checked_by",
+  "checked_at",
+  "signed_off",
+  "overall_notes"
+ ],
+ "fields": [
+  {
+   "default": "CSH-ADV-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "CSH-ADV-.YYYY.-.#####",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "EEZZE Build",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "check_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Check Date (Daily Routine)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Branch / Store Location",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_top",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nAll Lines Valid & Balanced\nInvalid Line Status Found\nControl Discrepancy Found\nDiscrepancy Reported to Finance Manager\nVerified & Signed Off",
+   "reqd": 1
+  },
+  {
+   "default": "BWP",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_summary",
+   "fieldtype": "Section Break",
+   "label": "Step 1-3: Line Status Verification (Must be on PIK or SBO)"
+  },
+  {
+   "default": "0",
+   "fieldname": "all_lines_valid",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "All Lines on PIK or SBO",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_orders_count",
+   "fieldtype": "Int",
+   "label": "Total Active Orders",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "invalid_lines_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Invalid Line Status Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sum",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "line_status_summary",
+   "fieldtype": "Small Text",
+   "label": "Line Status Audit Summary",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_table",
+   "fieldtype": "Section Break",
+   "label": "Cash Advance Orders Register"
+  },
+  {
+   "fieldname": "order_lines",
+   "fieldtype": "Table",
+   "label": "Cash Advance Orders",
+   "options": "Daily Cash Advance Order Item"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_investigation",
+   "fieldtype": "Section Break",
+   "label": "Branch Manager Investigation (If Lines Not PIK or SBO)"
+  },
+  {
+   "default": "0",
+   "fieldname": "branch_manager_contacted",
+   "fieldtype": "Check",
+   "label": "Branch Manager Contacted to Investigate"
+  },
+  {
+   "fieldname": "branch_manager_contacted_by",
+   "fieldtype": "Link",
+   "label": "Contacted By",
+   "options": "User"
+  },
+  {
+   "fieldname": "branch_manager_contacted_at",
+   "fieldtype": "Datetime",
+   "label": "Contacted At"
+  },
+  {
+   "default": "None",
+   "fieldname": "order_remedy_action",
+   "fieldtype": "Select",
+   "label": "Remedy / Corrective Action",
+   "options": "None\nRe-issue Pick List (PIK)\nSupplier Follow-up (SBO)\nProcess Customer Refund & Cancel SO\nEscalated to Operations"
+  },
+  {
+   "fieldname": "column_break_inv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "branch_manager_notes",
+   "fieldtype": "Small Text",
+   "label": "Branch Manager Explanation & Findings"
+  },
+  {
+   "fieldname": "section_control_recon",
+   "fieldtype": "Section Break",
+   "label": "Step 4-5: Reconcile Cash Advance Control Account"
+  },
+  {
+   "default": "Cash Advance Control - EEZZE",
+   "fieldname": "cash_advance_control_account",
+   "fieldtype": "Link",
+   "label": "Cash Advance Control Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "report_total_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Cash Advance Report Total (Sum of Lines)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "gl_control_balance",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "GL Control Account Balance",
+   "options": "currency"
+  },
+  {
+   "fieldname": "column_break_ctrl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "balance_difference",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Balance Difference (Report - GL)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "control_agrees",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Control Agrees (Zero Difference)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gl_recon_summary",
+   "fieldtype": "Small Text",
+   "label": "GL Reconciliation Status Summary",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_escalation",
+   "fieldtype": "Section Break",
+   "label": "Finance Manager (L2) Escalation & Sign-Off"
+  },
+  {
+   "default": "0",
+   "fieldname": "reported_to_fm",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Report Difference / Discrepancy to Finance Manager"
+  },
+  {
+   "fieldname": "reported_to_fm_at",
+   "fieldtype": "Datetime",
+   "label": "Reported to FM At"
+  },
+  {
+   "fieldname": "fm_decision_notes",
+   "fieldtype": "Small Text",
+   "label": "Finance Manager Review & Decision Notes"
+  },
+  {
+   "fieldname": "column_break_sign",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "checked_by",
+   "fieldtype": "Link",
+   "label": "Checked By (AP & Recon L3)",
+   "options": "User"
+  },
+  {
+   "fieldname": "checked_at",
+   "fieldtype": "Datetime",
+   "label": "Checked At",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "signed_off",
+   "fieldtype": "Check",
+   "label": "Verified & Signed Off"
+  },
+  {
+   "fieldname": "overall_notes",
+   "fieldtype": "Small Text",
+   "label": "Audit Review Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-27 15:10:00.000000",
+ "modified_by": "Administrator",
+ "module": "Eezze Build",
+ "name": "Daily Cash Advance Check",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "check_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "branch",
+ "track_changes": 1
+}
